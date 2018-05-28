@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>IOT Builders - Web Portal</title>
+  
+      <link rel="stylesheet" href="css/style.css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+runtimeVersion = "4.6.1";
+checkClient = false;
+directLink = "TestClickOnce.application";
+
+
+function Initialize()
+{
+  if (HasRuntimeVersion(runtimeVersion, false) || (checkClient && HasRuntimeVersion(runtimeVersion, checkClient)))
+  {
+    InstallButton.href = directLink;
+    BootstrapperSection.style.display = "none";
+  }
+}
+function HasRuntimeVersion(v, c)
+{
+  var va = GetVersion(v);
+  var i;
+  var a = navigator.userAgent.match(/\.NET CLR [0-9.]+/g);
+  if(va[0]==4)
+    a = navigator.userAgent.match(/\.NET[0-9.]+E/g);
+  if (c)
+  {
+    a = navigator.userAgent.match(/\.NET Client [0-9.]+/g);
+    if (va[0]==4)
+       a = navigator.userAgent.match(/\.NET[0-9.]+C/g);
+  }
+  if (a != null)
+    for (i = 0; i < a.length; ++i)
+      if (CompareVersions(va, GetVersion(a[i])) <= 0)
+                                return true;
+  return false;
+}
+function GetVersion(v)
+{
+  var a = v.match(/([0-9]+)\.([0-9]+)\.([0-9]+)/i);
+  if(a==null)
+     a = v.match(/([0-9]+)\.([0-9]+)/i);
+  return a.slice(1);
+}
+function CompareVersions(v1, v2)
+{
+   if(v1.length>v2.length)
+   {
+      v2[v2.length]=0;
+   }  
+   else if(v1.length<v2.length)
+   {
+      v1[v1.length]=0;
+   }
+
+  for (i = 0; i < v1.length; ++i)
+  {
+    var n1 = new Number(v1[i]);
+    var n2 = new Number(v2[i]);
+    if (n1 < n2)
+      return -1;
+    if (n1 > n2)
+      return 1;
+  }
+  return 0;
+}
+
+-->
+</SCRIPT>
+	  
+</head>
+
+<body>
+
+  <div class="login-page">
+  <div class="form">
+    <form class="login-form">
+	  <p>Product Name:&ensp;<b>SEA Vision - Client</b></p>
+	  <p>Version:&ensp;<b>1.0.0</b></p>
+	  <p>Publisher:&ensp;<b>IOT Builders</b></p>
+	  
+	  <div class="disclaimer">
+	  <p>Insert the provided password to download the application</p>
+	  </div>
+	
+      <input type="password" placeholder="password"/>
+      <button><A class="install-link" ID="InstallButton" HREF="setup.exe" style={ display: hidden;}>DOWNLOAD</A></button>
+	 
+	  <div class="disclaimer" id="BootstrapperSection">
+	  <p>Microsoft .NET Framework 4.6.1 (x86 and x64) is required</p>
+	  <p>If these components are already installed, you can <A HREF="TestClickOnce.application">launch</A> the application now</p>
+	  </div>
+	  
+    </form>
+  </div>
+</div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="js/index.js"></script>
+
+</body>
+
+</html>
