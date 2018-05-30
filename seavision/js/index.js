@@ -3,16 +3,14 @@
 	 
 	 var pwd = document.getElementById('inpwd').value;
 	 var hash = pwd.hashCode();
-	 
-	 if (hash == '1216985755')
+
+	 if (hash == '720607802')
 	 {
 		 $("#welcome-form").fadeOut(500);
 		 
 		 $('.wrapper').addClass('form-success');
 		 
-		  $("#protected").delay(500).fadeIn(500);
-		 
-		 //MyFadeFunction();
+		 $("#protected").delay(500).fadeIn(500);
 	 }
 
 });
@@ -28,14 +26,4 @@ String.prototype.hashCode = function() {
         hash = hash & hash; // Convert to 32bit integer
     }
     return hash;
-}
-
-var opacity = 0;
-
-function MyFadeFunction() {
-   if (opacity<1) {
-      opacity += .1;
-      setTimeout(function(){MyFadeFunction()},100);
-   }
-   document.getElementById('download-button').style.opacity = opacity;
 }
